@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://*.green-api.com https://*.greenapi.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="HTML-страница для вызова getSettings, getStateInstance, sendMessage и sendFileByUrl GREEN-API.">
+  <title>GREEN-API · Тестовое задание</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div><a class="brand" href="https://green-api.com/" target="_blank" rel="noopener noreferrer">GREEN-API<span class="brand-dot">.</span></a><p class="eyebrow">Тестовое задание · Поддержка 2 линии</p></div>
+    <a class="text-link" href="presentation/">Демонстрация <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <div class="intro"><h1>Проверка методов API</h1><p>Подключите инстанс, выполните запрос и посмотрите ответ.</p></div>
+    <div class="workspace">
+      <div class="controls">
+        <section aria-labelledby="connection-title" class="connection">
+          <h2 id="connection-title"><span class="step">01</span> Подключение</h2>
+          <label for="idInstance">idInstance</label>
+          <input id="idInstance" inputmode="numeric" autocomplete="off" placeholder="Номер инстанса" spellcheck="false">
+          <label for="apiTokenInstance">ApiTokenInstance</label>
+          <div class="token-field"><input id="apiTokenInstance" type="password" autocomplete="off" placeholder="Токен из личного кабинета" spellcheck="false"><button class="token-toggle" id="toggleToken" type="button" aria-label="Показать токен" aria-pressed="false">Показать</button></div>
+          <details><summary>Адрес API</summary><label for="apiUrl">apiUrl из личного кабинета</label><input id="apiUrl" type="url" value="https://api.greenapi.com" autocomplete="off" spellcheck="false"><p class="hint">Если у инстанса другой apiUrl, укажите его здесь.</p></details>
+          <div class="account-actions"><button type="button" data-method="getSettings">getSettings</button><button type="button" data-method="getStateInstance">getStateInstance</button></div>
+        </section>
+        <section aria-labelledby="message-title">
+          <h2 id="message-title"><span class="step">02</span> Сообщение</h2>
+          <label for="messageChatId">Номер получателя или chatId</label>
+          <input id="messageChatId" type="text" autocomplete="off" placeholder="77771234567" aria-describedby="chat-help" spellcheck="false">
+          <p id="chat-help" class="hint">Международный номер с кодом страны или chatId группы.</p>
+          <label for="message">Текст сообщения</label>
+          <textarea id="message" rows="3" maxlength="20000" placeholder="Hello World!"></textarea>
+          <button type="button" data-method="sendMessage">sendMessage</button>
+        </section>
+        <section aria-labelledby="file-title">
+          <h2 id="file-title"><span class="step">03</span> Файл по ссылке</h2>
+          <label for="fileChatId">Номер получателя или chatId</label>
+          <input id="fileChatId" type="text" autocomplete="off" placeholder="77771234567" spellcheck="false">
+          <label for="urlFile">Ссылка на файл</label>
+          <input id="urlFile" type="url" placeholder="https://my.site.com/img/horse.png" spellcheck="false">
+          <details><summary>Имя файла и подпись</summary><label for="fileName">Имя файла с расширением</label><input id="fileName" placeholder="Определяется из ссылки" spellcheck="false"><label for="caption">Подпись (необязательно)</label><textarea id="caption" rows="2" maxlength="20000" placeholder="Описание файла"></textarea></details>
+          <button type="button" data-method="sendFileByUrl">sendFileByUrl</button>
+        </section>
+      </div>
+      <section class="response-panel" aria-labelledby="response-title">
+        <div class="response-heading"><div><h2 id="response-title">Ответ</h2><p>Результат последнего запроса</p></div><span class="readonly">Только чтение</span></div>
+        <div class="response-meta"><span id="methodLabel">Запрос ещё не выполнен</span><span id="httpStatus"></span></div>
+        <label class="sr-only" for="response">Ответ метода</label><textarea id="response" readonly spellcheck="false" placeholder="Ответ API появится здесь."></textarea>
+        <p id="status" class="status" role="status" aria-live="polite">Готово к работе</p>
+        <p class="response-note">Ответ с idMessage означает постановку в очередь. Доставку проверьте в WhatsApp.</p>
+      </section>
+    </div>
+    <p class="privacy-note">Токен не сохраняется на странице и передаётся напрямую в GREEN-API. Не показывайте его на скриншотах.</p>
+    <noscript>Для вызовов API включите JavaScript в браузере.</noscript>
+  </main>
+  <footer><span>Мухамеджанов Рустам</span><nav aria-label="Полезные ссылки"><a href="https://github.com/destructself3-art/green-api-support-test" target="_blank" rel="noopener noreferrer">Исходный код</a><a href="https://green-api.com/docs/" target="_blank" rel="noopener noreferrer">Документация API</a></nav></footer>
+</body>
+</html>

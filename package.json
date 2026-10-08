@@ -1,0 +1,1 @@
+{"name":"green-api-support-test","version":"1.0.0","private":true,"type":"module","description":"GREEN-API technical support assignment","scripts":{"test":"node --test tests/api.test.js","start":"node server.mjs"},"engines":{"node":">=20"}}
